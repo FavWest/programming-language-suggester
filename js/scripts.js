@@ -1,3 +1,4 @@
+//Returns a string containing the top result, or all top-scoring results in a tie (ie "JavaPython")
 function findTopResult(lang) {
   let topResultList="";
   if(lang[0]>=lang[1] && lang[0]>=lang[2] && lang[0]>=lang[3]){
@@ -33,6 +34,7 @@ function findTopResult(lang) {
   return topResultList;
 }
 
+//Scores the quiz, and returns the scores as an array ([javaScore, jsScore, kotlinScore, pythonScore])
 function calculateResults(answer1, answer2, answer3, answer4, answer5, answer6) {
   let pythonScore=0;
   let javaScore=0;
@@ -146,26 +148,30 @@ function calculateResults(answer1, answer2, answer3, answer4, answer5, answer6) 
 $(document).ready(function() {
   $("#all-questions").submit(function(event) {
     event.preventDefault();
+    //Get the quiz answers and calculate the language scores
+    //calculateResults returns the scores as an array ([javaScore, jsScore, kotlinScore, pythonScore])
     const languageScores= calculateResults($("input:radio[name=whitespace]:checked").val(),
     $("input:radio[name=strongly-typed]:checked").val(),
     $("input:radio[name=pseudocode]:checked").val(),
     $("input:radio[name=webpage]:checked").val(),
     $("input:radio[name=phone]:checked").val(),
     $("input:radio[name=cool]:checked").val());
-    $("#language-scores").text("Language Scores: Java: " + languageScores[0] +
-    " Javascript: " + languageScores[1] +
-    " Kotlin: " + languageScores[2] +
-    " Python: " + languageScores[3]);
-    const topResult=findTopResult(languageScores);
+    //Change page to hide questions and show recommendation elements
     $("#all-questions").slideUp();
     $("#show-questions").show();
     $("#recommendation").fadeIn();
+    //Hide any results from previous quizzes
     $("#Java").hide();
     $("#JavaScript").hide();
     $("#Kotlin").hide();
     $("#Python").hide();
     $("#tie-result").hide();
-    
+    //Show results for current quiz
+    $("#language-scores").text("Language Scores: Java: " + languageScores[0] +
+    " Javascript: " + languageScores[1] +
+    " Kotlin: " + languageScores[2] +
+    " Python: " + languageScores[3]);
+    const topResult=findTopResult(languageScores);
     let tieTracker=0;
     if(topResult.includes("Java")&&topResult!=="JavaScript"){
       $("#Java").show();
@@ -188,6 +194,7 @@ $(document).ready(function() {
     }
   
   });
+  //"Show questions" button allows the user to show questions again after they are hidden
   $("#show-questions").click(function(){
     $("#all-questions").slideToggle();
     $("#show-questions").hide();
