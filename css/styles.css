@@ -59,3 +59,7 @@
   font-size: 300%;
   font-style: italic;
 }
+
+#submit-button {
+  margin: 2%;
+}

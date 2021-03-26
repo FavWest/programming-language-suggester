@@ -192,7 +192,6 @@ $(document).ready(function() {
     if(tieTracker>=2){
       $("#tie-result").show();
     }
-  
   });
   //"Show questions" button allows the user to show questions again after they are hidden
   $("#show-questions").click(function(){
