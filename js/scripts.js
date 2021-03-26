@@ -1,5 +1,5 @@
 function whitespace(answer) {
-  if (answer==="elegant") {
+  if (answer==="strongly-agree") {
     return "Python";
   }
   else if (answer==="agree") {
