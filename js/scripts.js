@@ -1,7 +1,5 @@
 function findTopResult(lang) {
-  //Array meaning: [javaScore, jsScore, kotlinScore, pythonScore]
   let topResultList="";
-
   if(lang[0]>=lang[1] && lang[0]>=lang[2] && lang[0]>=lang[3]){
     topResultList += "Java";
     if(lang[0]===lang[1]) {
@@ -31,8 +29,7 @@ function findTopResult(lang) {
   }
   else {
     topResultList += "Python";
-  }
-  
+  } 
   return topResultList;
 }
 
@@ -116,7 +113,7 @@ function calculateResults(answer1, answer2, answer3, answer4, answer5, answer6) 
     kotlinScore -=100;
   }
 
-  //SCORE COOL NEW LANGUAGE QUESTION
+  //SCORE COOL NEW LANGUAGE QUESTION 6
   if (answer6==="strongly-agree") {
     pythonScore -= 100;
     javaScore -= 100;
@@ -145,8 +142,6 @@ function calculateResults(answer1, answer2, answer3, answer4, answer5, answer6) 
   //RETURN RESULTS
   return([javaScore, jsScore, kotlinScore, pythonScore]);
 }
-
-
 
 $(document).ready(function() {
   $("#all-questions").submit(function(event) {

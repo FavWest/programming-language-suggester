@@ -1,28 +1,5 @@
-#recommendation {
-  display:none;
-  background-color: rgb(250, 255, 255);
-}
-
-#show-questions {
-  display: none;
-}
-
-#recommendation {
-  border: 5px solid lightskyblue;
-  margin-top: 2%;
-}
-
-.top-result {
-  font-size: 500%;
-  font-weight: bolder;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  text-align: center;
-}
-
-#language-scores {
-  font-size: 200%;
-  font-style: italic;
-  text-align: center;
+.jumbotron {
+  background-color: lightskyblue;
 }
 
 .single-question {
@@ -36,8 +13,28 @@
   font-weight: bold;
 }
 
-.jumbotron {
-  background-color: lightskyblue;
+.top-result {
+  font-size: 500%;
+  font-weight: bolder;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  text-align: center;
+}
+
+#recommendation {
+  display:none;
+  background-color: rgb(250, 255, 255);
+  border: 5px solid lightskyblue;
+  margin-top: 2%;
+}
+
+#show-questions {
+  display: none;
+}
+
+#language-scores {
+  font-size: 200%;
+  font-style: italic;
+  text-align: center;
 }
 
 #Java {
