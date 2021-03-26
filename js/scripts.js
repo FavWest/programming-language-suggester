@@ -135,15 +135,34 @@ $(document).ready(function() {
     $("input:radio[name=webpage]:checked").val(),
     $("input:radio[name=phone]:checked").val(),
     $("input:radio[name=cool]:checked").val());
-    $("#language-scores").text("Language Scores: Java: " + languageScores[0].toString() +
-    " Javascript: " + languageScores[1].toString() +
-    " Kotlin: " + languageScores[1].toString() +
-    " Python: " + languageScores[1].toString());
+    $("#language-scores").text("Language Scores: Java: " + languageScores[0] +
+    " Javascript: " + languageScores[1] +
+    " Kotlin: " + languageScores[2] +
+    " Python: " + languageScores[3]);
     const topResult=findTopResult(languageScores);
-    $("#top-result").text(topResult);
     $("#all-questions").slideUp();
     $("#show-questions").show();
     $("#recommendation").fadeIn();
+    $("#Java").hide();
+    $("#JavaScript").hide();
+    $("#Kotlin").hide();
+    $("#Python").hide();
+    $("#error-note").hide();
+    if(topResult==="Java"){
+      $("#Java").show();
+    }
+    else if(topResult==="JavaScript"){
+      $("#JavaScript").show();
+    }
+    else if(topResult==="Kotlin"){
+      $("#Kotlin").show();
+    }
+    else if(topResult==="Python"){
+      $("#Python").show();
+    }
+    else {
+      $("#error-note").show();
+    }
   });
   $("#show-questions").click(function(){
     $("#all-questions").slideToggle();
