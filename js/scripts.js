@@ -1,10 +1,10 @@
-function calculateResults(answer1, answer2, answer3) {
+function calculateResults(answer1, answer2, answer3, answer4, answer5, answer6) {
   let pythonScore=0;
   let javaScore=0;
   let jsScore=0;
   let kotlinScore=0;
 
-  //SCORE WHITESPACE QUESTION
+  //SCORE WHITESPACE QUESTION 1
   if (answer1==="strongly-agree") {
     pythonScore += 10;
   }
@@ -18,7 +18,7 @@ function calculateResults(answer1, answer2, answer3) {
     pythonScore -= 100;
   }
 
-  //SCORE STRONGLY_TYPED QUESTION
+  //SCORE STRONGLY_TYPED QUESTION 2
   if (answer2==="strongly-agree") {
     jsScore -=100;
     pythonScore -=100;
@@ -40,7 +40,7 @@ function calculateResults(answer1, answer2, answer3) {
     kotlinScore -=100;
   }
 
-  //SCORE PSEUDOCODE QUESTION
+  //SCORE PSEUDOCODE QUESTION 3
   if (answer3==="strongly-agree") {
     pythonScore += 10;
   }
@@ -52,7 +52,56 @@ function calculateResults(answer1, answer2, answer3) {
   }
   else if (answer3==="strongly-disagree") {
     pythonScore -= 100;
+  }
+
+  //SCORE WEBPAGE QUESTION 4
+  if (answer4==="strongly-agree") {
+    jsScore += 100;
+  }
+  else if (answer4==="agree") {
+    jsScore += 10;
+  }
+  else if (answer4==="strongly-disagree") {
+    jsScore -= 100;
+  }
+
+  //SCORE PHONE QUESTION 5
+  if (answer5==="strongly-agree") {
+    javaScore += 100;
+    kotlinScore +=100;
+  }
+  else if (answer5==="agree") {
     javaScore += 10;
+    kotlinScore += 10;
+  }
+  else if (answer5==="strongly-disagree") {
+    kotlinScore -=100;
+  }
+
+  //SCORE COOL NEW LANGUAGE QUESTION
+  if (answer6==="strongly-agree") {
+    pythonScore -= 100;
+    javaScore -= 100;
+    jsScore -=100;
+    kotlinScore +=100;
+  }
+  else if (answer6==="agree") {
+    pythonScore -= 5;
+    javaScore -= 5;
+    jsScore -=5;
+    kotlinScore +=5;
+  }
+  else if (answer6==="disagree") {
+    pythonScore += 5;
+    javaScore += 5;
+    jsScore +=5;
+    kotlinScore -=5;
+  }
+  else if (answer6==="strongly-disagree") {
+    pythonScore += 5;
+    javaScore += 5;
+    jsScore +=5;
+    kotlinScore -=100;
   }
 
   //RETURN RESULTS
@@ -69,7 +118,10 @@ $(document).ready(function() {
     event.preventDefault();
     const rec1= calculateResults($("input:radio[name=whitespace]:checked").val(),
     $("input:radio[name=strongly-typed]:checked").val(),
-    $("input:radio[name=pseudocode]:checked").val());
+    $("input:radio[name=pseudocode]:checked").val(),
+    $("input:radio[name=webpage]:checked").val(),
+    $("input:radio[name=phone]:checked").val(),
+    $("input:radio[name=cool]:checked").val());
     $("#rec1").text(rec1);
     $("#recommendation1").show();
   });
