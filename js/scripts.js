@@ -52,6 +52,7 @@ function calculateResults(answer1, answer2, answer3) {
   }
   else if (answer3==="strongly-disagree") {
     pythonScore -= 100;
+    javaScore += 10;
   }
 
   //RETURN RESULTS
