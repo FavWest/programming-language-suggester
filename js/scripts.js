@@ -1,3 +1,19 @@
+function findTopResult(lang) {
+  //Array meaning: [javaScore, jsScore, kotlinScore, pythonScore]
+  if(lang[0]>=lang[1] && lang[0]>=lang[2] && lang[0]>=lang[3]){
+    return "Java";
+  }
+  else if(lang[1]>=lang[2]&&lang[1]>=lang[3]){
+    return "JavaScript";
+  }
+  else if(lang[2]>=lang[3]){
+    return "Kotlin";
+  }
+  else {
+    return "Python";
+  }
+}
+
 function calculateResults(answer1, answer2, answer3, answer4, answer5, answer6) {
   let pythonScore=0;
   let javaScore=0;
@@ -105,10 +121,7 @@ function calculateResults(answer1, answer2, answer3, answer4, answer5, answer6) 
   }
 
   //RETURN RESULTS
-  return("Python Score: "+pythonScore 
-  +" JavaScript Score: "+jsScore
-  +" Java Score: "+javaScore
-  +" Kotlin Score: "+kotlinScore)
+  return([javaScore, jsScore, kotlinScore, pythonScore]);
 }
 
 
@@ -116,13 +129,15 @@ function calculateResults(answer1, answer2, answer3, answer4, answer5, answer6) 
 $(document).ready(function() {
   $("#all-questions").submit(function(event) {
     event.preventDefault();
-    const rec1= calculateResults($("input:radio[name=whitespace]:checked").val(),
+    const languageScores= calculateResults($("input:radio[name=whitespace]:checked").val(),
     $("input:radio[name=strongly-typed]:checked").val(),
     $("input:radio[name=pseudocode]:checked").val(),
     $("input:radio[name=webpage]:checked").val(),
     $("input:radio[name=phone]:checked").val(),
     $("input:radio[name=cool]:checked").val());
-    $("#rec1").text(rec1);
-    $("#recommendation1").show();
+    $("#language-scores").text(languageScores.toString());
+    const topResult=findTopResult(languageScores);
+    $("#top-result").text(topResult);
+    $("#recommendation").show();
   });
 });
