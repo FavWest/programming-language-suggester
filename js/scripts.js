@@ -135,9 +135,18 @@ $(document).ready(function() {
     $("input:radio[name=webpage]:checked").val(),
     $("input:radio[name=phone]:checked").val(),
     $("input:radio[name=cool]:checked").val());
-    $("#language-scores").text(languageScores.toString());
+    $("#language-scores").text("Language Scores: Java: " + languageScores[0].toString() +
+    " Javascript: " + languageScores[1].toString() +
+    " Kotlin: " + languageScores[1].toString() +
+    " Python: " + languageScores[1].toString());
     const topResult=findTopResult(languageScores);
     $("#top-result").text(topResult);
-    $("#recommendation").show();
+    $("#all-questions").slideUp();
+    $("#show-questions").show();
+    $("#recommendation").fadeIn();
+  });
+  $("#show-questions").click(function(){
+    $("#all-questions").slideToggle();
+    $("#show-questions").hide();
   });
 });

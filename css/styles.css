@@ -1,3 +1,7 @@
 #recommendation {
   display:none;
 }
+
+#show-questions {
+  display: none;
+}
