@@ -5,3 +5,8 @@
 #show-questions {
   display: none;
 }
+
+#recommendation {
+  border: 5px solid lightskyblue;
+  margin-top: 2%;
+}
