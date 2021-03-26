@@ -1,4 +1,4 @@
-function calculateResults(answer1, answer2) {
+function calculateResults(answer1, answer2, answer3) {
   let pythonScore=0;
   let javaScore=0;
   let jsScore=0;
@@ -40,6 +40,20 @@ function calculateResults(answer1, answer2) {
     kotlinScore -=100;
   }
 
+  //SCORE PSEUDOCODE QUESTION
+  if (answer3==="strongly-agree") {
+    pythonScore += 10;
+  }
+  else if (answer3==="agree") {
+    pythonScore += 5;
+  }
+  else if (answer3==="disagree") {
+    pythonScore -= 5
+  }
+  else if (answer3==="strongly-disagree") {
+    pythonScore -= 100;
+  }
+
   //RETURN RESULTS
   return("Python Score: "+pythonScore 
   +" JavaScript Score: "+jsScore
@@ -53,7 +67,8 @@ $(document).ready(function() {
   $("#all-questions").submit(function(event) {
     event.preventDefault();
     const rec1= calculateResults($("input:radio[name=whitespace]:checked").val(),
-    $("input:radio[name=strongly-typed]:checked").val());
+    $("input:radio[name=strongly-typed]:checked").val(),
+    $("input:radio[name=pseudocode]:checked").val());
     $("#rec1").text(rec1);
     $("#recommendation1").show();
   });
