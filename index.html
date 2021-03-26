@@ -7,12 +7,11 @@
   <script src="js/scripts.js"></script>
   <title>Programming Language Suggester</title>
 </head>
+<div class="container">
 <h1>Programming Language Suggester</h1>
 <h4>Answer these questions to get advice about the programming language you should learn!</h4>
 <br>
-
-<form id="all-questions">
-  <div class="container" class="question" id="whitespace-question">
+  <form id="all-questions">
     <div class="radio">
       <p class="question-text">Whitespace can be meaningful. That's okay with me.</p>
       <label>
@@ -34,10 +33,15 @@
         <input type="radio" name="whitespace" value="nope">
         Absolutely not. That would be a deal-breaker for me.
       </label>
+      <br>
     </div>
+    <button type="submit" class="btn-lg">Create my recommendations!</button>
   </div>
-  <button type="submit" class="btn">Create my recommendations!</button>
 </form>
+<div id="recommendation1">
+  <h1>LANGUAGE</h1>
+  <p>Here's why</p>
+</div>
 </html>
 
 
