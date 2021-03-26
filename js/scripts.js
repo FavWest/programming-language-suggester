@@ -1,20 +1,10 @@
-function calculateResults(answer1) {
+function calculateResults(answer1, answer2) {
   let pythonScore=0;
   let javaScore=0;
   let jsScore=0;
   let kotlinScore=0;
 
-  pythonScore=whitespace(answer1, pythonScore);
-  
-  if (pythonScore > 0) {
-    return "You might like Python";
-  }
-  else {
-    return "Sorry, something went wrong"
-  }
-}
-
-function whitespace(answer1, pythonScore) {
+  //SCORE WHITESPACE QUESTION
   if (answer1==="strongly-agree") {
     pythonScore += 10;
   }
@@ -27,8 +17,22 @@ function whitespace(answer1, pythonScore) {
   else if (answer1==="nope") {
     pythonScore -= 100;
   }
-  return pythonScore;
+
+  //SCORE STRONGLY_TYPED QUESTION
+  if (answer2==="strongly-agree") {
+    pythonScore -=100;
+    javaScore +=10;
+    kotlinScore +=10;
+  }
+
+  //RETURN RESULTS
+  return("Python Score: "+pythonScore 
+  +" JavaScript Score: "+jsScore
+  +" Java Score: "+javaScore
+  +" Kotlin Score: "+kotlinScore)
 }
+
+
 
 $(document).ready(function() {
   $("#all-questions").submit(function(event) {
