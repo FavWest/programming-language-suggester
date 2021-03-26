@@ -23,3 +23,14 @@
   font-style: italic;
   text-align: center;
 }
+
+.single-question {
+  border: 2px solid lightskyblue;
+  padding: 2%;
+  margin: 2%;
+  background-color: rgb(250, 255, 255);
+}
+
+.question-text {
+  font-weight: bold;
+}

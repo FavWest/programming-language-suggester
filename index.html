@@ -8,11 +8,14 @@
   <title>Programming Language Suggester</title>
 </head>
 <div class="container">
-<h1>Programming Language Suggester</h1>
+<div class="jumbotron">
+  <h1>Programming Language Suggester</h1>
 <h4>Answer these questions to get advice about the programming language you should learn!</h4>
+</div>
 <br>
   <form id="all-questions">
     <div class="radio">
+      <div class="single-question">
       <p class="question-text">Whitespace can be meaningful. That's okay with me.</p>
       <label>
         <input type="radio" name="whitespace" value="strongly-agree">
@@ -34,7 +37,9 @@
         Absolutely not. That would be a deal-breaker for me.
       </label>
     </div>
+    </div>
     <div class="radio">
+      <div class="single-question">
       <p class="question-text">I like strongly typed languages and have no problem putting String or int before every new variable. Of COURSE parameters should be typed.</p>
       <label>
         <input type="radio" name="strongly-typed" value="strongly-agree">
@@ -56,7 +61,9 @@
         Absolutely not. That would be a deal-breaker for me.
       </label>
     </div>
+  </div>
     <div class="radio">
+      <div class="single-question">
       <p class="question-text">Typing pseudocode directly into the console, and then having it run, sounds perfect. If I run into trouble doing so, that's my fault, really.</p>
       <label>
         <input type="radio" name="pseudocode" value="strongly-agree">
@@ -78,7 +85,9 @@
         Definitely not for me.
       </label>
     </div>
+  </div>
     <div class="radio">
+      <div class="single-question">
       <p class="question-text">I want to create interactive webpages</p>
       <label>
         <input type="radio" name="webpage" value="strongly-agree">
@@ -100,7 +109,9 @@
         No, I'm a programmer who hates the internet.
       </label>
     </div>
+  </div>
     <div class="radio">
+      <div class="single-question">
       <p class="question-text">I want to create apps for my phone</p>
       <label>
         <input type="radio" name="phone" value="strongly-agree">
@@ -122,7 +133,9 @@
         I hate phones.
       </label>
     </div>
+  </div>
     <div class="radio">
+      <div class="single-question">
       <p class="question-text">I want a cool, avante-guarde language</p>
       <label>
         <input type="radio" name="cool" value="strongly-agree">
@@ -144,6 +157,7 @@
         I refuse to use any language created in this millenium.
       </label>
     </div>
+  </div>
     <button type="submit" class="btn-lg">Create my recommendations!</button>
   </div>
 </form>
