@@ -56,6 +56,9 @@
   display: none;
 }
 
-#error-note {
+#tie-result {
   display: none;
+  text-align: center;
+  font-size: 300%;
+  font-style: italic;
 }

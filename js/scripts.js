@@ -1,17 +1,39 @@
 function findTopResult(lang) {
   //Array meaning: [javaScore, jsScore, kotlinScore, pythonScore]
+  let topResultList="";
+
   if(lang[0]>=lang[1] && lang[0]>=lang[2] && lang[0]>=lang[3]){
-    return "Java";
+    topResultList += "Java";
+    if(lang[0]===lang[1]) {
+      topResultList += "JavaScript";
+    };
+    if(lang[0]===lang[2]) {
+      topResultList += "Kotlin";
+    }
+    if(lang[0]===lang[3]) {
+      topResultList += "Python";
+    }
   }
   else if(lang[1]>=lang[2]&&lang[1]>=lang[3]){
-    return "JavaScript";
+    topResultList += "JavaScript";
+    if(lang[1]===lang[2]) {
+      topResultList += "Kotlin";
+    }
+    if(lang[1]===lang[3]) {
+      topResultList += "Python";
+    }
   }
   else if(lang[2]>=lang[3]){
-    return "Kotlin";
+    topResultList += "Kotlin";
+    if(lang[2]===lang[3]){
+      topResultList += "Python";
+    }
   }
   else {
-    return "Python";
+    topResultList += "Python";
   }
+  
+  return topResultList;
 }
 
 function calculateResults(answer1, answer2, answer3, answer4, answer5, answer6) {
@@ -147,22 +169,29 @@ $(document).ready(function() {
     $("#JavaScript").hide();
     $("#Kotlin").hide();
     $("#Python").hide();
-    $("#error-note").hide();
-    if(topResult==="Java"){
+    $("#tie-result").hide();
+    
+    let tieTracker=0;
+    if(topResult.includes("Java")&&topResult!=="JavaScript"){
       $("#Java").show();
+      tieTracker += 1;
     }
-    else if(topResult==="JavaScript"){
+    if(topResult.includes("JavaScript")){
       $("#JavaScript").show();
+      tieTracker += 1;
     }
-    else if(topResult==="Kotlin"){
+    if(topResult.includes("Kotlin")){
       $("#Kotlin").show();
+      tieTracker += 1;
     }
-    else if(topResult==="Python"){
+    if(topResult.includes("Python")){
       $("#Python").show();
+      tieTracker += 1;
     }
-    else {
-      $("#error-note").show();
+    if(tieTracker>=2){
+      $("#tie-result").show();
     }
+  
   });
   $("#show-questions").click(function(){
     $("#all-questions").slideToggle();

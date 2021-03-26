@@ -27,7 +27,7 @@ _Answer a set of multiple-choice questions to get compatibility scores for Java,
 * Open Portfolio folder in Explorer or Finder
 * Double-click "index.html" to open in a browser
 ## Known Bugs
-* When scores for two or more languages are tied, only the first (by alphabetical order) is displayed as the recommendation.
+* When scores for two or more languages are tied, only the first (by alphabetical order) is displayed as the recommendation (FIXED 3-26-2021).
 ## License
 MIT
 Copyright (c) 2021 Victoria West
