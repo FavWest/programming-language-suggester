@@ -10,3 +10,16 @@
   border: 5px solid lightskyblue;
   margin-top: 2%;
 }
+
+#top-result {
+  font-size: 500%;
+  font-weight: bolder;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  text-align: center;
+}
+
+#language-scores {
+  font-size: 200%;
+  font-style: italic;
+  text-align: center;
+}
